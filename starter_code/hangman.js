@@ -1,4 +1,4 @@
-var hangman;
+// var hangman;
 
 // function Hangman() {
 
@@ -31,12 +31,20 @@ var hangman;
 // Hangman.prototype.checkWinner = function () {
 
 // };
+let theGame;
 
 document.getElementById('start-game-button').onclick = function () {
-  hangman = new Hangman();
+ theGame = new Hangman();
+ theGame.getWord();
+//  document.onkeyup
+
+document.onkeyup = function (pressedKey) {
+  theGame.checkIfLetter(pressedKey);
+
+  theGame.checkClickedLetters(pressedKey);
+
+  theGame.checkGameOver();
+  theGame.checkWinner();
 };
-
-
-document.onkeydown = function (e) {
 
 };
